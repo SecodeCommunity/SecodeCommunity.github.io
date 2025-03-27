@@ -21,7 +21,7 @@ SECODE, teknoloji konusunda tutkulu bilgisayar mühendisliği öğrencilerini bi
 Bu proje GitHub Pages üzerinde otomatik olarak deploy edilmektedir. Ana branch'teki değişiklikler otomatik olarak yayınlanır.
 
 ### Deployment URL
-https://SecodeCommunity.github.io/secode
+https://SecodeCommunity.github.io
 
 ## Yerel Geliştirme
 
@@ -29,12 +29,12 @@ Projeyi yerel ortamınızda çalıştırmak için:
 
 1. Projeyi klonlayın:
 ```bash
-git clone https://github.com/SecodeCommunity/secode.git
+git clone https://github.com/SecodeCommunity/SecodeCommunity.github.io.git
 ```
 
 2. Proje dizinine gidin:
 ```bash
-cd secode
+cd SecodeCommunity.github.io
 ```
 
 3. `index.html` dosyasını bir web tarayıcısında açın veya bir local server kullanın.
