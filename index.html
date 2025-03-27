@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECODE - Teknoloji Topluluğu</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #1e40af);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1e40af;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #60a5fa;
+        }
+        .stats-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .mobile-menu {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            .desktop-menu {
+                display: none;
+            }
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            cursor: pointer;
+            min-width: 160px;
+        }
+        .btn-primary {
+            background-color: #1e40af;
+            color: white;
+            border: 2px solid #1e40af;
+        }
+        .btn-primary:hover {
+            background-color: #1e3a8a;
+            border-color: #1e3a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+        }
+        .btn-secondary {
+            background-color: white;
+            color: #1e40af;
+            border: 2px solid #1e40af;
+        }
+        .btn-secondary:hover {
+            background-color: #eff6ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.1);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .btn i {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-900">SECODE</span>
+                </div>
+                <div class="desktop-menu hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-900">Ana Sayfa</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-blue-900">Hakkımızda</a>
+                    <a href="#features" class="nav-link text-gray-700 hover:text-blue-900">Özellikler</a>
+                    <a href="#stats" class="nav-link text-gray-700 hover:text-blue-900">İstatistikler</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-blue-900">İletişim</a>
+                </div>
+                <div class="mobile-menu md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-900">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu-items" class="hidden md:hidden">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#home" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Ana Sayfa</a>
+                    <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Hakkımızda</a>
+                    <a href="#features" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Özellikler</a>
+                    <a href="#stats" class="block px-3 py-2 text-gray-700 hover:text-blue-900">İstatistikler</a>
+                    <a href="#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-900">İletişim</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient text-white pt-32 pb-20 relative">
+        <img src="photo_5994524437174666503_y.jpg" alt="SECODE Hero" class="hero-image">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center hero-content">
+                <h1 class="text-5xl font-bold mb-6">SECODE'a Hoş Geldiniz</h1>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">
+                    Siber güvenlik, yazılım geliştirme ve bilgisayar ağları konularında
+                    tutkulu bilgisayar mühendisliği öğrencilerinden oluşan profesyonel bir topluluk.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <a href="https://forms.gle/fxQpD1O9h6XMHuNrMDbAkRmDj0pFWWlmoSSD8XY4drhPfUCA" target="_blank" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Topluluğa Katıl
+                    </a>
+                    <a href="#about" class="btn btn-outline">
+                        <i class="fas fa-info-circle"></i> Daha Fazla Bilgi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Topluluk İstatistikleri</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">500+</div>
+                    <div class="text-gray-600">Aktif Üye</div>
+                </div>
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">50+</div>
+                    <div class="text-gray-600">Tamamlanan Proje</div>
+                </div>
+                <div class="stats-card text-center">
+                    <div class="text-4xl font-bold text-blue-900 mb-2">20+</div>
+                    <div class="text-gray-600">Eğitim & Workshop</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Uzmanlık Alanlarımız</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cybersecurity Card -->
+                <div class="feature-card p-8 rounded-lg bg-white">
+                    <img src="photo_5790893161428661698_m.jpg" alt="Siber Güvenlik" class="feature-image">
+                    <h3 class="text-xl font-semibold mb-4">Siber Güvenlik</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Etik hackerlık, ağ güvenliği ve siber savunma stratejileri konularında
+                        kapsamlı eğitim ve pratik deneyim fırsatları.
+                    </p>
+                </div>
+
+                <!-- Software Development Card -->
+                <div class="feature-card p-8 rounded-lg bg-white">
+                    <img src="photo_5994524437174666503_y.jpg" alt="Yazılım Geliştirme" class="feature-image">
+                    <h3 class="text-xl font-semibold mb-4">Yazılım Geliştirme</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Modern programlama dilleri, yazılım mimarisi ve geliştirme pratikleri
+                        konularında profesyonel eğitim ve proje deneyimi.
+                    </p>
+                </div>
+
+                <!-- Computer Networks Card -->
+                <div class="feature-card p-8 rounded-lg bg-white">
+                    <img src="photo_5790893161428661698_m.jpg" alt="Bilgisayar Ağları" class="feature-image">
+                    <h3 class="text-xl font-semibold mb-4">Bilgisayar Ağları</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ağ protokolleri, mimarisi ve yönetimi konularında teorik ve pratik
+                        bilgi birikimi kazanma imkanı.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-8">SECODE Hakkında</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    SECODE, teknoloji konusunda tutkulu bilgisayar mühendisliği öğrencilerini
+                    bir araya getiren öğrenci odaklı bir topluluktur. Siber güvenlik, yazılım
+                    geliştirme ve bilgisayar ağları olmak üzere üç ana alanda uzmanlaşma
+                    fırsatı sunuyoruz. Topluluğumuz, öğrencilere öğrenme, işbirliği ve
+                    profesyonel gelişim için ideal bir platform sağlar.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <h2 class="text-3xl font-bold mb-8">İletişime Geçin</h2>
+                <p class="text-gray-600 mb-8">
+                    Topluluğumuza katılmak ister misiniz? Sizden haber almaktan mutluluk duyarız!
+                </p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                    <a href="contact.html" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Bize Ulaşın
+                    </a>
+                    <a href="https://forms.gle/fxQpD1O9h6XMHuNrMDbAkRmDj0pFWWlmoSSD8XY4drhPfUCA" target="_blank" class="btn btn-secondary">
+                        <i class="fas fa-user-plus"></i> Topluluğa Katıl
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-semibold mb-4">Bizi Sosyal Medyada Takip Edin</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://instagram.com/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://github.com/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center border-t border-gray-800 pt-8">
+                <p>&copy; 2024 SECODE. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuItems = document.getElementById('mobile-menu-items');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuItems.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenuItems.contains(e.target)) {
+                mobileMenuItems.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İletişim - SECODE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .contact-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        .contact-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: #60a5fa;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-blue-900">SECODE</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-900">Ana Sayfa</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-blue-900">Hakkımızda</a>
+                    <a href="index.html#features" class="text-gray-700 hover:text-blue-900">Özellikler</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-900">İletişim</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="contact-gradient text-white pt-32 pb-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">İletişime Geçin</h1>
+                <p class="text-xl max-w-2xl mx-auto">
+                    Sorularınız, önerileriniz veya işbirliği talepleriniz için bizimle iletişime geçebilirsiniz.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white p-8 rounded-lg shadow-lg">
+                    <h2 class="text-2xl font-bold mb-6">Bize Mesaj Gönderin</h2>
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Adınız Soyadınız</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">E-posta Adresiniz</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Konu</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Mesajınız</label>
+                            <textarea id="message" name="message" class="form-input form-textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-900 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                            Mesaj Gönder
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-6">İletişim Bilgileri</h2>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="text-blue-900">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Adres</h3>
+                                    <p class="text-gray-600">Üniversite Kampüsü, Bilgisayar Mühendisliği Bölümü</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-blue-900">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">E-posta</h3>
+                                    <p class="text-gray-600">contact@secode.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <div class="text-blue-900">
+                                    <i class="fas fa-phone text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold">Telefon</h3>
+                                    <p class="text-gray-600">+90 (XXX) XXX XX XX</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h2 class="text-2xl font-bold mb-6">Sosyal Medya</h2>
+                        <div class="flex space-x-6">
+                            <a href="https://instagram.com/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl text-gray-600 hover:text-blue-900">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://t.me/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl text-gray-600 hover:text-blue-900">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="https://github.com/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl text-gray-600 hover:text-blue-900">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/secode" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl text-gray-600 hover:text-blue-900">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2024 SECODE. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
