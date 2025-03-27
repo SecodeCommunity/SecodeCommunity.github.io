@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SECODE - Ekibimiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.1;
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1e40af;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .team-card {
+            transition: all 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <body class="bg-gray-50">
+        <!-- Navigation -->
+        <nav class="bg-white shadow-lg fixed w-full z-50">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <span class="text-2xl font-bold text-blue-900">SECODE</span>
+                    </div>
+                    <div class="desktop-menu hidden md:flex space-x-8">
+                        <a href="index.html#home" class="nav-link text-gray-700 hover:text-blue-900">Ana Sayfa</a>
+                        <a href="team.html" class="nav-link text-gray-700 hover:text-blue-900">Ekibimiz</a>
+                        <a href="index.html#about" class="nav-link text-gray-700 hover:text-blue-900">Hakkımızda</a>
+                        <a href="index.html#features" class="nav-link text-gray-700 hover:text-blue-900">Özellikler</a>
+                        <a href="index.html#contact" class="nav-link text-gray-700 hover:text-blue-900">İletişim</a>
+                    </div>
+                    <div class="mobile-menu md:hidden">
+                        <button id="mobile-menu-button" class="text-gray-700 hover:text-blue-900">
+                            <i class="fas fa-bars text-2xl"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Mobile Menu -->
+                <div id="mobile-menu-items" class="hidden md:hidden">
+                    <div class="px-2 pt-2 pb-3 space-y-1">
+                        <a href="index.html#home" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Ana Sayfa</a>
+                        <a href="team.html" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Ekibimiz</a>
+                        <a href="index.html#about" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Hakkımızda</a>
+                        <a href="index.html#features" class="block px-3 py-2 text-gray-700 hover:text-blue-900">Özellikler</a>
+                        <a href="index.html#contact" class="block px-3 py-2 text-gray-700 hover:text-blue-900">İletişim</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4" data-i18n="team_title">Ekibimiz</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="team_description">
+                    Tutkulu ve yetenekli ekibimizle teknoloji dünyasında fark yaratıyoruz.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Community Leader -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:-translate-y-2">
+                    <div class="p-6">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                            <img src="members/kaan.jpg" alt="Community Leader" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-2">Mevlüt Kaan Karakoç</h3>
+                        <p class="text-blue-600 text-center mb-4" data-i18n="role_leader">Topluluk Lideri</p>
+                        <p class="text-gray-600 text-center mb-4">@2024</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/mevlutkaankarakoc" target="_blank" class="text-gray-600 hover:text-blue-600">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/kaankarakoc42" target="_blank" class="text-gray-600 hover:text-blue-600">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vice President -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:-translate-y-2">
+                    <div class="p-6">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                            <img src="members/muhammet.png" alt="Vice President" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-2">Muhammet Kaya</h3>
+                        <p class="text-blue-600 text-center mb-4" data-i18n="role_vice_president">Başkan Yardımcısı</p>
+                        <p class="text-gray-600 text-center mb-4">@2024</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/muhammed-kaya-76a8a1282?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAETUtQIBjxRAHjbuqe5B5HrAcnqXTmWaIJA&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BNPntNK2mS3mD0CGN1E%2FxuQ%3D%3D" target="_blank" class="text-gray-600 hover:text-blue-600">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/[profile]" target="_blank" class="text-gray-600 hover:text-blue-600">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secretary -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:-translate-y-2">
+                    <div class="p-6">
+                        <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                            <img src="members/hasan.jpg" alt="Secretary" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-semibold text-center mb-2">Hasan Server Kamber</h3>
+                        <p class="text-blue-600 text-center mb-4" data-i18n="role_secretary">Sekreter</p>
+                        <p class="text-gray-600 text-center mb-4">@2024</p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="https://www.linkedin.com/in/hasan-server-kamber-64ba97296" target="_blank" class="text-gray-600 hover:text-blue-600">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/[profile]" target="_blank" class="text-gray-600 hover:text-blue-600">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-semibold mb-4">Bizi Sosyal Medyada Takip Edin</h3>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://instagram.com/secode__" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://t.me/+8QWKBexyXxwxZmJk" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="https://github.com/SecodeCommunity" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/secode-sakarya-uygulamal%C4%B1-bilimler-%C3%BCniversitesi-siber-g%C3%BCvenlik-%C3%B6%C4%9Frenci-toplulu%C4%9Fu" target="_blank" rel="noopener noreferrer" class="social-icon text-2xl hover:text-blue-400">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center border-t border-gray-800 pt-8">
+                <p>&copy; 2024 SECODE. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuItems = document.getElementById('mobile-menu-items');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenuItems.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenuButton.contains(e.target) && !mobileMenuItems.contains(e.target)) {
+                mobileMenuItems.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
